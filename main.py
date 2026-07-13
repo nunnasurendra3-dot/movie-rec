@@ -23,6 +23,13 @@ if not TMDB_API_KEY:
 
 app = FastAPI(title="Movie Recommender API", version="3.0")
 
+
+@app.get("/")
+def home():
+    return {
+        "message": "Movie Recommendation API is running!"
+    }
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # for local streamlit
